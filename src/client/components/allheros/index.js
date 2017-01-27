@@ -35,7 +35,7 @@ const Hero = ({ hero, actions }) =>
       {hero.name}
     </div>
     <div style={{ height: '10%', marginLeft: '0.5em' }}>
-      <button onClick={() => actions.loadHero(hero)} >Details</button>
+      <button onClick={() => actions.loadHero(hero.id)} >Details</button>
     </div>
   </HeroCard>
 ;

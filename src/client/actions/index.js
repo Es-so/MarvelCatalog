@@ -5,6 +5,10 @@ const R = require('ramda');
 export const HEROS_LOADED = 'heros/herosLoaded';
 export const HERO_LOADED = 'heros/heroLoaded';
 
+const formatData = data => data.data.results;
+const formatId = R.concat('/');
+const mixin = (dispatch, func_) => R.compose(dispatch, func_, formatData);
+
 export const herosLoaded = heros => ({
   type: HEROS_LOADED,
   payload: heros,
@@ -12,10 +16,8 @@ export const herosLoaded = heros => ({
 
 export const loadHeros = () => (dispatch) => {
   requestJson('')
-    .then(data => dispatch(herosLoaded(data.data.results)))
-    .catch(console.log);  // eslint-disable-line no-console
+    .then(mixin(dispatch, herosLoaded)).catch(console.log);  // eslint-disable-line no-console
 };
-
 
 export const heroLoaded = (hero) => ({
   type: HERO_LOADED,
@@ -24,11 +26,6 @@ export const heroLoaded = (hero) => ({
   thumbnail: hero[0].thumbnail,
 });
 
-const formatData = data => data.data.results;
-const formatId = R.concat('/');
-const mixin = (dispatch) => R.compose(dispatch, heroLoaded, formatData);
-
-export const loadHero = hero => (dispatch) => {
-  requestJson(formatId(hero.id))
-    .then(mixin(dispatch));
+export const loadHero = id => (dispatch) => {
+  requestJson(formatId(id)).then(mixin(dispatch, heroLoaded)).catch(console.log);  // eslint-disable-line no-console;
 };
