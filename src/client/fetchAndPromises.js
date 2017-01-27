@@ -23,11 +23,6 @@ const parserJson = result => result.json();
 
 const absoluteUri = uri => `${baseUrl}${charactersUri}${uri}?ts=${stamp}&apikey=${publicKey}&hash=${hash}`;
 
-const params = method => ({ headers: { 'Content-Type': 'application/json' }, method });
-
-const requestJson = (uri = '', { method = 'GET' } = {}) => {
-  return fetch(absoluteUri(uri), params(method))
-    .then(checkStatus).then(parserJson);
-};
+const requestJson = (uri = '') => fetch(absoluteUri(uri)).then(checkStatus).then(parserJson);
 
 export default requestJson;

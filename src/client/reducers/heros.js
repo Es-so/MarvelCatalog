@@ -7,7 +7,6 @@ const fillHeros = (state, action) => {
   return [...state, ...payload];
 };
 
-
 const heros = (state = [], action) => {
   switch (action.type) {
     case HEROS_LOADED:
