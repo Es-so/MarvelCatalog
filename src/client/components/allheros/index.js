@@ -37,6 +37,12 @@ const Hero = ({ hero, actions }) =>
   </HeroCard>
 ;
 
+Hero.propTypes = {
+  hero: React.PropTypes.object.isRequired,
+  actions: React.PropTypes.object.isRequired,
+};
+
+
 const AllHeros = ({ heros, actions }) =>
   <Wrapper>
     { 
@@ -46,5 +52,11 @@ const AllHeros = ({ heros, actions }) =>
     }
   </Wrapper>
 ;
+
+AllHeros.propTypes = {
+  heros: React.PropTypes.array.isRequired,
+  actions: React.PropTypes.object.isRequired,
+};
+
 
 export default AllHeros;

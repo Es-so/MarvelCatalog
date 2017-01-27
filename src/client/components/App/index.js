@@ -31,12 +31,24 @@ const Content = ({ heros, hero, actions }) =>
   </div>
 ;
 
+Content.propTypes = {
+  heros: React.PropTypes.array.isRequired,
+  hero: React.PropTypes.object.isRequired,
+  actions: React.PropTypes.object.isRequired,
+};
+
 const App = ({ heros, hero, actions }) =>
   <Wrapper>
     <Title>MARVEL</Title>
     <Content heros={heros} hero={hero} actions={actions} />
   </Wrapper>
 ;
+
+App.propTypes = {
+  heros: React.PropTypes.array.isRequired,
+  hero: React.PropTypes.object.isRequired,
+  actions: React.PropTypes.object.isRequired,
+};
 
 const mapStateToProps = state => state;
 const mapDispatchToProps = dispatch => ({

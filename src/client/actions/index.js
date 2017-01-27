@@ -22,7 +22,7 @@ export const heroLoaded = (hero, name, thumbnail) => ({
   thumbnail,
 });
 
-export const formatId = id => R.concat('/', R.toString(id));
+export const formatId = R.concat('/');
 
 export const loadHero = hero => dispatch => {
   requestJson(formatId(hero.id))
