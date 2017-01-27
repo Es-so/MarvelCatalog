@@ -41,9 +41,20 @@ PictureHero.propTypes = {
 
 const Content = ({ hero, titleContent }) =>
   <div>
-    <h3> {titleContent} </h3>
+    <h3 style={{ backgroundColor: 'whitesmoke' }} > {titleContent} </h3>
     <ul>
-      { hero.items.map((serie, index) => <li style={{ listStyle: 'none' }} key={index}> {serie.name} </li>)}
+      {
+        hero.items.map((serie, index) =>
+          <li
+            style={{
+              listStyle: 'none',
+              borderBottom: '1px solid darkgrey',
+              marginBottom: '4px' }}
+            key={index}
+          >
+            {serie.name}
+          </li>)
+      }
     </ul>
   </div>
 ;
