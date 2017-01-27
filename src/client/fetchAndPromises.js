@@ -12,7 +12,6 @@ const hash = crypto.createHash('md5').update(`${stamp}${privateKey}${publicKey}`
 
 // ________________________________________________________________________________________
 
-
 const checkStatus = (result) => {
   if (result.status !== 200) {
     throw new Error(result.statusText);
@@ -22,10 +21,12 @@ const checkStatus = (result) => {
 
 const parserJson = result => result.json();
 
+const absoluteUri = uri => `${baseUrl}${charactersUri}${uri}?ts=${stamp}&apikey=${publicKey}&hash=${hash}`;
+
+const params = method => ({ headers: { 'Content-Type': 'application/json' }, method });
+
 const requestJson = (uri = '', { method = 'GET' } = {}) => {
-  const absoluteUri = `${baseUrl}${charactersUri}${uri}?ts=${stamp}&apikey=${publicKey}&hash=${hash}`;
-  const params = { headers: { 'Content-Type': 'application/json' }, method };
-  return fetch(absoluteUri, params)
+  return fetch(absoluteUri(uri), params(method))
     .then(checkStatus).then(parserJson);
 };
 
