@@ -7,12 +7,13 @@ import AllHeros from '../allheros';
 import Hero from '../hero';
 
 export const Title = styled.h1`
-  font-size: 1.5em;
+  font-size: 2em;
   padding: 2em;
   text-align: center;
-  color: red;
+  text-shadow: 2px 2px 8px red;
+  color: white;
   margin-top: 0px;
-  background-color: whitesmoke;
+  background-color: black;
 `;
 
 const Wrapper = styled.section`

@@ -19,8 +19,11 @@ const HeroCard = styled.div`
   height: 300px;
   backgroundColor: whitesmoke;
   borderRadius: 10px;
-  boxShadow: 10px 10px 20px;
+  boxShadow: none;
   border: solid 1px darkgrey;
+  &:hover {
+    boxShadow: 10px 10px 20px;
+  }
 `;
 
 const Hero = ({ hero, actions }) =>
