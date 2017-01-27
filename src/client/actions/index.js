@@ -16,16 +16,19 @@ export const loadHeros = () => (dispatch) => {
     .catch(console.log);  // eslint-disable-line no-console
 };
 
-export const heroLoaded = (hero, name, thumbnail) => ({
+
+export const heroLoaded = (hero) => ({
   type: HERO_LOADED,
-  name,
+  name: hero[0].name,
   payload: hero,
-  thumbnail,
+  thumbnail: hero[0].thumbnail,
 });
 
-export const formatId = R.concat('/');
+const formatData = data => data.data.results;
+const formatId = R.concat('/');
+const mixin = (dispatch) => R.compose(dispatch, heroLoaded, formatData);
 
 export const loadHero = hero => (dispatch) => {
   requestJson(formatId(hero.id))
-    .then(data => dispatch(heroLoaded(data.data.results, hero.name, hero.thumbnail)));
+    .then(mixin(dispatch));
 };

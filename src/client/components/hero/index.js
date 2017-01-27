@@ -20,7 +20,7 @@ const HeadStyle = styled.div`
 const Header = ({ hero }) =>
   <HeadStyle>
     <h1 style={{ textAlign: 'center ' }} >{hero.name}</h1>
-    <p>{hero[0].description}</p>
+    <p>{hero.description}</p>
   </HeadStyle>
 ;
 
@@ -68,7 +68,7 @@ const Hero = ({ hero }) =>
   <HeroFich>
     <PictureHero hero={hero} />
     <div style={{ width: '80%', padding: '10px', paddingTop: '0px' }}>
-      <Header hero={hero} />
+      <Header hero={hero[0]} />
       <Content hero={hero[0].comics} titleContent="Comics" />
       <Content hero={hero[0].series} titleContent="Series" />
     </div>
