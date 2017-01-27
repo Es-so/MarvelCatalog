@@ -1,10 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
-import * as allActions from '../../actions';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import AllHeros from '../allheros'
-import Hero from '../hero'
+import * as allActions from '../../actions';
+import AllHeros from '../allheros';
+import Hero from '../hero';
 
 export const Title = styled.h1`
   font-size: 1.5em;
@@ -22,12 +22,12 @@ const Wrapper = styled.section`
 
 const Content = ({ heros, hero, actions }) =>
   <div style={{ paddingLeft: '7.5em', paddingRight: '7.5em' }} >
-  {
-  	hero.name ?
-  	<Hero hero={hero} />
-  	:
-  	<AllHeros heros={heros} actions={actions} />
-  }
+    {
+      hero.name ?
+        <Hero hero={hero} />
+      :
+        <AllHeros heros={heros} actions={actions} />
+    }
   </div>
 ;
 

@@ -1,4 +1,5 @@
 import requestJson from '../fetchAndPromises';
+
 const R = require('ramda');
 
 export const HEROS_LOADED = 'heros/herosLoaded';
@@ -9,10 +10,10 @@ export const herosLoaded = heros => ({
   payload: heros,
 });
 
-export const loadHeros = () => dispatch => {
+export const loadHeros = () => (dispatch) => {
   requestJson('')
     .then(data => dispatch(herosLoaded(data.data.results)))
-    .catch(console.log);
+    .catch(console.log);  // eslint-disable-line no-console
 };
 
 export const heroLoaded = (hero, name, thumbnail) => ({
@@ -24,7 +25,7 @@ export const heroLoaded = (hero, name, thumbnail) => ({
 
 export const formatId = R.concat('/');
 
-export const loadHero = hero => dispatch => {
+export const loadHero = hero => (dispatch) => {
   requestJson(formatId(hero.id))
     .then(data => dispatch(heroLoaded(data.data.results, hero.name, hero.thumbnail)));
 };

@@ -25,14 +25,14 @@ const HeroCard = styled.div`
 
 const Hero = ({ hero, actions }) =>
   <HeroCard>
-    <div style={{width: '100%', height: '80%', textAlign: 'center' }}>
-      <img style={{ height: '100%'}} src={`${hero.thumbnail.path}.${hero.thumbnail.extension}`} />
+    <div style={{ width: '100%', height: '80%', textAlign: 'center' }}>
+      <img alt="hero" style={{ height: '100%' }} src={`${hero.thumbnail.path}.${hero.thumbnail.extension}`} />
     </div>
     <div style={{ width: '100%', height: '5%', margin: '0.5em' }} >
       {hero.name}
     </div>
     <div style={{ height: '10%', marginLeft: '0.5em' }}>
-    <button onClick={() => actions.loadHero(hero)} >Details</button>
+      <button onClick={() => actions.loadHero(hero)} >Details</button>
     </div>
   </HeroCard>
 ;
@@ -45,9 +45,9 @@ Hero.propTypes = {
 
 const AllHeros = ({ heros, actions }) =>
   <Wrapper>
-    { 
+    {
       heros.map(hero =>
-  	    <Hero key={hero.id} hero={hero} actions={actions} />
+        <Hero key={hero.id} hero={hero} actions={actions} />
       )
     }
   </Wrapper>

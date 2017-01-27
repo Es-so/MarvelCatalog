@@ -19,7 +19,7 @@ const HeadStyle = styled.div`
 
 const Header = ({ hero }) =>
   <HeadStyle>
-    <h1 style={{ textAlign: 'center '}} >{hero.name}</h1>
+    <h1 style={{ textAlign: 'center ' }} >{hero.name}</h1>
     <p>{hero[0].description}</p>
   </HeadStyle>
 ;
@@ -31,7 +31,7 @@ Header.propTypes = {
 
 const PictureHero = ({ hero }) =>
   <div style={{ width: '20%', height: '100%' }}>
-    <img style={{ height: '20%', width: '100%' }} src={`${hero[0].thumbnail.path}.${hero[0].thumbnail.extension}`} />
+    <img alt="hero" style={{ height: '20%', width: '100%' }} src={`${hero[0].thumbnail.path}.${hero[0].thumbnail.extension}`} />
   </div>
 ;
 
@@ -45,7 +45,7 @@ const Content = ({ hero, titleContent }) =>
     <ul>
       { hero.items.map((serie, index) => <li style={{ listStyle: 'none' }} key={index}> {serie.name} </li>)}
     </ul>
- </div>
+  </div>
 ;
 
 Content.propTypes = {
@@ -58,8 +58,8 @@ const Hero = ({ hero }) =>
     <PictureHero hero={hero} />
     <div style={{ width: '80%', padding: '10px', paddingTop: '0px' }}>
       <Header hero={hero} />
-      <Content hero={hero[0].comics} titleContent='Comics' />
-      <Content hero={hero[0].series} titleContent='Series' />
+      <Content hero={hero[0].comics} titleContent="Comics" />
+      <Content hero={hero[0].series} titleContent="Series" />
     </div>
   </HeroFich>
 ;

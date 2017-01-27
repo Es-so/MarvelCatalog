@@ -4,13 +4,13 @@ import {
 
 const fillHero = (state, action) => {
   const { payload, name } = action;
-  return { name, ...payload};
+  return { name, ...payload };
 };
 
 const hero = (state = [], action) => {
   switch (action.type) {
-  	case HERO_LOADED:
-  		return fillHero(state, action);
+    case HERO_LOADED:
+      return fillHero(state, action);
     default:
       return state;
   }
