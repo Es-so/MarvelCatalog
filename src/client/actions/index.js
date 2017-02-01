@@ -1,6 +1,5 @@
 import requestJson from '../fetchAndPromises';
-
-const R = require('ramda');
+import R from 'ramda';
 
 export const HEROS_LOADED = 'heros/herosLoaded';
 export const HERO_LOADED = 'heros/heroLoaded';

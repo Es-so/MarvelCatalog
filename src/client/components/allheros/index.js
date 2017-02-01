@@ -22,14 +22,17 @@ const HeroCard = styled.div`
   boxShadow: none;
   border: solid 1px darkgrey;
   &:hover {
-    boxShadow: 10px 10px 20px;
+    boxShadow: 10px 10px 20px black;
+    backgroundColor: ghostwhite;
+    color: black;
+    textShadow: 2px 2px 5px darkorange;
   }
 `;
 
 const Hero = ({ hero, actions }) =>
   <HeroCard>
     <div style={{ width: '100%', height: '80%', textAlign: 'center' }}>
-      <img alt="hero" style={{ height: '100%' }} src={`${hero.thumbnail.path}.${hero.thumbnail.extension}`} />
+      <img alt="hero" style={{ height: '100%', maxWidth: '80%' }} src={`${hero.thumbnail.path}.${hero.thumbnail.extension}`} />
     </div>
     <div style={{ width: '100%', height: '5%', margin: '0.5em' }} >
       {hero.name}
